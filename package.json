@@ -1,6 +1,6 @@
 {
-  "name": "react-mobx-translatable",
-  "version": "1.2.0",
+  "name": "react-mobx-i18n",
+  "version": "1.0.0",
   "description": "Make React components translatable using MobX",
   "main": "index.js",
   "scripts": {
@@ -9,25 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infinum/react-mobx-translatable.git"
+    "url": "git+https://github.com/jverhoelen/react-mobx-i18n.git"
   },
   "keywords": [
     "react",
     "i18n",
     "mobx"
   ],
-  "author": "Infinum <javascript.team@infinum.co>",
-  "contributors": [
-    {
-      "name": "Darko Kukovec",
-      "email": "darko@infinum.co"
-    }
-  ],
+  "author": "mixed",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/infinum/react-mobx-translatable/issues"
+    "url": "https://github.com/jverhoelen/react-mobx-i18n/issues"
   },
-  "homepage": "https://github.com/infinum/react-mobx-translatable#readme",
+  "homepage": "https://github.com/jverhoelen/react-mobx-i18n#readme",
   "devDependencies": {
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",

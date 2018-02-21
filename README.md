@@ -1,17 +1,15 @@
-# react-mobx-translatable
+# react-mobx-i18n
+
+*Info: This is a fork from react-mobx-translatable due to other opinions about the approach.*
 
 Make React components translatable using MobX. Can be used both on the server (SSR) and in the browser.
 
 Note: This plugin depends on ``mobx-react`` features that are currently marked as experimental: ``Provider`` and ``inject``.
 
-[![Build Status](https://travis-ci.org/infinum/react-mobx-translatable.svg?branch=master)](https://travis-ci.org/infinum/react-mobx-translatable)
-[![Dependency Status](https://david-dm.org/infinum/react-mobx-translatable.svg)](https://david-dm.org/infinum/react-mobx-translatable)
-[![devDependency Status](https://david-dm.org/infinum/react-mobx-translatable/dev-status.svg)](https://david-dm.org/infinum/react-mobx-translatable#info=devDependencies)
-
 ## Installation
 
 ```Bash
-npm install react-mobx-translatable
+npm install --save react-mobx-i18n
 ```
 
 ## Usage
@@ -53,12 +51,12 @@ The example assumes you're using the following:
 
 This is however not a requirement.
 
-### Initialize store, i18n, and translatable
+### Initialize store, i18n, and react-mobx-i18n
 
 ```JavaScript
 import {observable} from 'mobx';
 import i18n from 'i18n-harmony';
-import {init} from 'translatable';
+import {init} from 'react-mobx-i18n';
 
 const defaultLocale = 'en'; // Can be based on browser language or user selection (localStorage, cookies)
 
@@ -91,7 +89,7 @@ ReactDOM.render(<Provider {...store}>
 
 ``` JavaScript
 import {Component} from 'react';
-import {translatable} from 'translatable';
+import {translatable} from 'react-mobx-i18n';
 
 @translatable
 export default class MyComponent extends Component {
@@ -114,20 +112,6 @@ export default class MyComponent extends Component {
   }
 }
 ```
-
-## Changelog
-
-### v1.2.0
-
-* Expose `has` from [i18n-harmony lib](https://github.com/DarkoKukovec/i18n-harmony)
-
-### v1.1.0
-
-* Add ability to connect the store with the component
-
-### v1.0.0
-
-* Initial release
 
 ## License
 [MIT License](LICENSE)
