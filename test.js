@@ -8,7 +8,7 @@ const {observable} = require('mobx');
 const i18n = require('i18n-harmony');
 const {jsdom} = require('jsdom');
 
-const {init, translatable} = require('./index');
+const {init, translatable, tFactory} = require('./index');
 
 const exposedProperties = ['window', 'navigator', 'document'];
 
@@ -136,5 +136,14 @@ describe('react-mobx-translatable', function() {
     const MyWrappedComponent = translatable(MyComponent);
 
     const wrapper = mount(<Provider {...store}><MyWrappedComponent /></Provider>);
+  });
+
+  it('should provide factory for translation function', function() {
+    const store = {
+      i18n: observable({locale: 'en'})
+    };
+    init();
+
+    expect(tFactory(store.i18n)('hello')).to.equal('Hello')
   });
 });

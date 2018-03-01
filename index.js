@@ -60,7 +60,7 @@ function translatable(Component, connect) {
 
 function translatorFactory(i18nStore) {
   return function translate(key, opts) {
-      return I18n.t(key, opts, false, i18nStore.locale)
+      return I18n.t(key, opts, i18nStore.locale)
   }
 }
 
