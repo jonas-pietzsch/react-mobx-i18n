@@ -25,19 +25,19 @@
   "devDependencies": {
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
-    "chai": "^3.5.0",
+    "chai": "^4.1.2",
     "enzyme": "^2.4.1",
-    "husky": "^0.13.0",
+    "husky": "^0.14.3",
     "jsdom": "^9.4.1",
     "mobx": "^3.0.1",
-    "mocha": "^3.0.1",
+    "mocha": "^5.2.0",
     "react-addons-test-utils": "^15.3.0",
     "react-dom": "^15.3.0"
   },
   "dependencies": {
     "i18n-harmony": "^1.4.0",
     "mobx-react": "4.4.1",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.2",
     "react": "^15.3.0"
   }
 }
