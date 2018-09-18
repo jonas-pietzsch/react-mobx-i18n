@@ -8,7 +8,7 @@ const { observable } = require('mobx')
 const i18n = require('i18n-harmony')
 const { jsdom } = require('jsdom')
 
-const { init, translatable, tFactory } = require('./index')
+const { init, translatable, tFactory, hasFactory } = require('./index')
 
 const exposedProperties = ['window', 'navigator', 'document']
 
@@ -145,5 +145,14 @@ describe('react-mobx-translatable', function () {
         init()
 
         expect(tFactory(store.i18n)('hello')).to.equal('Hello')
+    })
+
+    it('should provide factory for has-translation function', function () {
+        const store = {
+            i18n: observable({ locale: 'en' })
+        }
+        init()
+
+        expect(hasFactory(store.i18n)('hello')).to.be.true
     })
 })

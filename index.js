@@ -64,6 +64,12 @@ function translatorFactory(i18nStore) {
     }
 }
 
+function hasTranslationFactory(i18nStore) {
+    return function hasTranslation(key, opts) {
+        return I18n.has(key, opts, false, i18nStore.locale)
+    }
+}
+
 module.exports = {
     init: init,
     translatable: function (arg) {
@@ -74,5 +80,6 @@ module.exports = {
         }
         return translatable(arg)
     },
-    tFactory: translatorFactory
+    tFactory: translatorFactory,
+    hasFactory: hasTranslationFactory
 }
