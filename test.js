@@ -1,14 +1,16 @@
 const { expect } = require('chai')
 const { describe, it } = require('mocha')
-const { mount } = require('enzyme')
-
+const Enzyme = require('enzyme')
+const Adapter = require('enzyme-adapter-react-16')
 const React = require('react')
+const PropTypes = require('prop-types')
 const { Provider } = require('mobx-react')
 const { observable } = require('mobx')
 const i18n = require('i18n-harmony')
 const { jsdom } = require('jsdom')
-
 const { init, translatable, tFactory, hasFactory } = require('./index')
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const exposedProperties = ['window', 'navigator', 'document']
 
@@ -51,7 +53,7 @@ describe('react-mobx-translatable', function () {
         }
         const MyWrappedComponent = translatable(MyComponent)
 
-        const wrapper = mount(<Provider {...store}><MyWrappedComponent /></Provider>)
+        const wrapper = Enzyme.mount(<Provider {...store}><MyWrappedComponent /></Provider>)
 
         expect(wrapper.find('div').first().text()).to.equal('Hello')
 
@@ -74,7 +76,7 @@ describe('react-mobx-translatable', function () {
         }
         const MyWrappedComponent = translatable(MyComponent)
 
-        const wrapper = mount(<Provider {...store}><MyWrappedComponent /></Provider>)
+        const wrapper = Enzyme.mount(<Provider {...store}><MyWrappedComponent /></Provider>)
 
         expect(wrapper.find('div').first().text()).to.equal('Hello')
 
@@ -101,11 +103,11 @@ describe('react-mobx-translatable', function () {
             }
         }
         MyComponent.propTypes = {
-            data: React.PropTypes.object
+            data: PropTypes.object
         }
         const MyWrappedComponent = translatable(['data'])(MyComponent)
 
-        const wrapper = mount(<Provider {...store}><MyWrappedComponent /></Provider>)
+        const wrapper = Enzyme.mount(<Provider {...store}><MyWrappedComponent /></Provider>)
 
         expect(wrapper.find('div').first().text()).to.equal('Hello')
 
@@ -135,7 +137,7 @@ describe('react-mobx-translatable', function () {
         }
         const MyWrappedComponent = translatable(MyComponent)
 
-        const wrapper = mount(<Provider {...store}><MyWrappedComponent /></Provider>)
+        const wrapper = Enzyme.mount(<Provider {...store}><MyWrappedComponent /></Provider>)
     })
 
     it('should provide factory for translation function', function () {

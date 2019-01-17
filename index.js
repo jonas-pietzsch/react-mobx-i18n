@@ -53,7 +53,7 @@ function translatable(Component, connect) {
     }
 
     var observed = connect
-        ? mobxReact.observer(connect)(Component)
+        ? mobxReact.inject(connect)(mobxReact.observer(Component))
         : mobxReact.observer(Component)
     return mobxReact.inject(config.injectFn)(observed)
 }
